@@ -15,6 +15,7 @@
     <link rel="preconnect" href="{{ url('https://fonts.googleapis.com') }}">
     <link rel="preconnect" href="{{ url('https://fonts.gstatic.com') }}" crossorigin>
     <link href="{{ url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     
     <!-- Icon Font Stylesheet -->
     <link href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css') }}" rel="stylesheet">
@@ -86,9 +87,9 @@
                 </a>
                 <form class="d-none d-md-flex ms-4" action="/search" method="GET" role="search">
                     {{ csrf_field()}}
-                    <input class="form-control border-0" type="search" placeholder="Search matricule ou nom" name="search">
+                    <input class="form-control border-0" type="search" placeholder="Search matricule ou nom" name="q">
                 </form>
-                <button class="btn btn-primary" style="margin-left: 20px;" ty>Search</button>
+                <button class="btn btn-primary" style="margin-left: 20px;" type="submit">Search</button>
                 <div class="navbar-nav align-items-center ms-auto">
                    
                     <div class="nav-item dropdown">

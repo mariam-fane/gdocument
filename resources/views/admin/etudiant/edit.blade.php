@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-md-6">
                   <label for="inputSexe" class="form-label">Sexe:</label>
-                  <input type="text" class="form-control" id="inputSexe" name="sexe" value="{{$etudiant->sexe}}">
+                  <input type="text" class="form-control" id="inputSexe" name="etud_gender" value="{{$etudiant->sexe}}">
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-success">Enregistrer</button>

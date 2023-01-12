@@ -33,6 +33,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if(count($etudiants) > 0)
                             @foreach($etudiants as $etudiant)
                             <tr>
                                 <td>{{$etudiant->id}}</td>
@@ -66,7 +67,13 @@
                             </tr>
                         </tbody>
                         @endforeach
+                        @else
+                        <tr>
+                            <td colspan="5" class="text-center">No Data Found</td>
+                        </tr>
+                        @endif
                     </table>
+                    {!! $etudiants->links() !!}
                   <!--a href="demande.php">Nouvelle demande</a-->
              </div>
          </div>

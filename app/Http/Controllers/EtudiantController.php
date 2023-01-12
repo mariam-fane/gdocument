@@ -21,8 +21,8 @@ class EtudiantController extends Controller
         //     $etudiants = Etudiant::all();
         // }
         // dd();
-       $etudiants = etudiant::all();
-        return view('admin/etudiant.index', compact('etudiants'));
+       $etudiants = etudiant::latest()->paginate(5);
+        return view('admin/etudiant.index', compact('etudiants'))->with('i', (request()->input('page', 1)-1) * 5);
     }
 
     /**

@@ -42,6 +42,7 @@ Route::post('/admin/etudiant', [EtudiantController::class, 'store'])->name('admi
 Route::put('/admin/etudiant/{id}', [EtudiantController::class, 'update'])->name('admin/etudiant.update');
 Route::delete('/admin/etudiant/{id}', [EtudiantController::class, 'destroy'])->name('admin/etudiant.destroy');
 
+
 Route::get('/admin/filiere', [FiliereController::class, 'index'])->name('admin/filiere.index');
 Route::get('/admin/filiere/create',[FiliereController::class, 'create'])->name('admin/filiere.create');
 Route::get('/admin/filiere/{id}', [FiliereController::class, 'show'])->name('admin/filiere.show');
