@@ -12,19 +12,24 @@ class EtudiantController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(Request $request)
+    public function index()
     {
-        // $search  = $request['searche']?? "";
-        // if ($search !="") {
-        //    $etudiants = etudiant::where('matricule', '=', $search)->get();
-        // }else{
-        //     $etudiants = Etudiant::all();
-        // }
-        // dd();
+
        $etudiants = etudiant::latest()->paginate(5);
         return view('admin/etudiant.index', compact('etudiants'))->with('i', (request()->input('page', 1)-1) * 5);
     }
 
+    public function search(){
+
+        $q = request()->input('q');
+
+        $etudiant = Etudiant::where('matricule', 'like', "%$q%")
+        ->orWhere('nom', 'like', "%$q%")
+        ->paginate(5);
+
+        return view('etudiant.search')->with('etudiant', $etudiant);
+        //dd($q);
+    }
     /**
      * Show the form for creating a new resource.
      *

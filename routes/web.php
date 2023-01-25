@@ -9,6 +9,7 @@ use App\Http\Controllers\ParcoursController;
 use App\Http\Controllers\PersonnelController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SoutenanceController;
 use App\Http\Controllers\Type_projetController;
 
@@ -20,7 +21,7 @@ use App\Http\Controllers\Type_projetController;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
+| 
 */
 
 Route::get('/', function () {
@@ -34,7 +35,7 @@ Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logo
 Route::get('admin/profile_user', [AdminController::class, 'profile'])->name('admin.profile_user');
 
 Route::get('/admin/etudiant',[EtudiantController::class, 'index'])->name('admin/etudiant.index');
-Route::get('/admin/etudiant/search',[EtudiantController::class, 'search']);
+Route::get('/admin/etudiant/search',[EtudiantController::class, 'search'])->name('admin/etudiant.search');
 Route::get('/admin/etudiant/create',[EtudiantController::class, 'create'])->name('admin/etudiant.create');
 Route::get('/admin/etudiant/{id}', [EtudiantController::class, 'show'])->name('admin/etudiant.show');
 Route::get('/admin/etudiant/{id}/edit', [EtudiantController::class, 'edit'])->name('admin/etudiant.edit');
@@ -101,3 +102,4 @@ Route::get('/admin/soutenance/{id}/edit', [SoutenanceController::class, 'edit'])
 Route::post('/admin/soutenance', [SoutenanceController::class, 'store'])->name('admin/soutenance.store');
 Route::put('/admin/soutenance/{id}', [SoutenanceController::class, 'update'])->name('admin/soutenance.update');
 Route::delete('/admin/soutenance/{id}', [SoutenanceController::class, 'destroy'])->name('admin/soutenance.destroy');
+

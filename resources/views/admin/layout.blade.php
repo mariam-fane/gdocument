@@ -85,11 +85,7 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form class="d-none d-md-flex ms-4" action="/search" method="GET" role="search">
-                    {{ csrf_field()}}
-                    <input class="form-control border-0" type="search" placeholder="Search matricule ou nom" name="q">
-                </form>
-                <button class="btn btn-primary" style="margin-left: 20px;" type="submit">Search</button>
+                @include('admin/partials.search')
                 <div class="navbar-nav align-items-center ms-auto">
                    
                     <div class="nav-item dropdown">
