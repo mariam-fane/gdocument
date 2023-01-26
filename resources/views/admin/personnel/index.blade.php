@@ -1,9 +1,9 @@
 @extends('admin/layout')
 @section('content')
-
-    <div class="card shadow mb-4" style="margin: right 200px;">
+<section class="section dashboard">
+    <div class="card">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Personnel List </h6>
+                <h4 class="m-0 font-weight-bold text-primary" style="text-align: center;">Personnel List </h4>
             </div>
             <div class="d-flex justify-content-end mb-1" style="margin-bottom:5px;">
                 <a class="btn btn-primary" href="{{ route('admin/personnel.create') }}">Add Personnel</a>
@@ -27,6 +27,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if(count($personnels) > 0)
                             @foreach($personnels as $personnel)
                                 <tr>
                                     <td>{{$personnel->id}}</td>
@@ -59,10 +60,17 @@
                                 </tr>
                             </tbody>
                             @endforeach
+                            @else
+                            <tr>
+                                <td colspan="5" class="text-center">No Data Found</td>
+                            </tr>
+                            @endif
                     </table>
-                  <!--a href="demande.php">Nouvelle demande</a-->
+                    {!! $personnels->links() !!}
              </div>
          </div>
     </div>
+
+</section>
 
 @endsection

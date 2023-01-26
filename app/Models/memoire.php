@@ -12,4 +12,9 @@ class memoire extends Model
     protected $fillable = [
         'type', 'fichier', 'specialite', 'projets_id'
     ];
+
+    // Pour recuperer le titre du projet
+    public function projets(){
+        return $this->belongsTo(Projet::class);
+     }
 }

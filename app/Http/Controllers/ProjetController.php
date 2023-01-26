@@ -17,7 +17,7 @@ class ProjetController extends Controller
      */
     public function index()
     {
-        $projets = Projet::all();
+        $projets = Projet::orderBy('titre', 'asc')->paginate(5);
         //dd($projets);
         //return projet::find(1)->getParcours;
         return view('admin/projet.index', compact('projets'));

@@ -1,9 +1,9 @@
 @extends('admin/layout')
 @section('content')
-
-    <div class="card shadow mb-4" style="margin: right 200px;">
+<section class="section dashboard">
+    <div class="card">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Etudiant List </h6>
+                <h4 class="m-0 font-weight-bold text-primary" style="text-align: center;">Etudiant List </h4>
             </div>
             <div class="d-flex justify-content-end mb-1" style="margin-right:15px;">
                 <a class="btn btn-primary" href="{{ route('admin/etudiant.create') }}">Ajouter</a>
@@ -74,9 +74,9 @@
                         @endif
                     </table>
                     {!! $etudiants->links() !!}
-                  <!--a href="demande.php">Nouvelle demande</a-->
+
              </div>
          </div>
     </div>
-
+</section>
 @endsection

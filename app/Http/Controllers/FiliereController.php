@@ -13,7 +13,7 @@ class FiliereController extends Controller
      */
     public function index()
     {
-        $filieres = Filiere::all();
+        $filieres = Filiere::orderBy('libele', 'asc')->paginate(5);
         return view('admin/filiere.index', compact('filieres'));
     }
 

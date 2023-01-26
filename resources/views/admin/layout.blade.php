@@ -68,7 +68,7 @@
                     <a href="{{url('/admin/parcours')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Parcours</a>
                     <a href="{{url('/admin/type_projet')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Type Projet</a>
                     <a href="{{url('/admin/memoire')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Memoires</a>
-                    <a href="{{url('/admin/soutenance')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Soutenance</a>
+                    <a href="{{url('/admin/soutenance')}}" class="nav-item nav-link"><i class="fa fa-book me-2"></i>Soutenance</a>
               </div>
             </nav>
         </div>
@@ -103,9 +103,23 @@
             <!-- Navbar End -->
 
 
+            @if(request()->input())
+                <h6>{{$etudiants->total() }} resultat(s) pour la recherche "{{request()->q}}"</h6>
+            @endif
+
+            @if (count($errors) > 0)
+                <div class="btn btn-danger">
+                    <ul class="mb-0 mt-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <!-- Sale & Revenue Start -->
             <div class="container-fluid pt-4 px-4">
               @yield('content')
+
             </div>
             <!-- Sale & Revenue End -->
 

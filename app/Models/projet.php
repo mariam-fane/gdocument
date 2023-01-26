@@ -14,15 +14,18 @@ class projet extends Model
         'parcours_id', 'type_projets_id', 'personnels_id'
     ];
 
-    public function getParcours(){
-        return $this->hasMany(Parcours::class);
+    public function Parcours(){
+        return $this->belongsTo(Parcours::class);
     } 
     // public function getParcours(){
     //     return $this->parcours;
     // }
-
-    // public function setParcours($parcours){
-    //     $this->parcours =$parcours;
-    // }
+// Pour recuperer le titre du projet
+    public function type_projets(){
+    return $this->belongsTo(Type_projet::class);
+ }
+    public function personnels(){
+        return $this->belongsTo(Personnel::class);
+    }
 
 }

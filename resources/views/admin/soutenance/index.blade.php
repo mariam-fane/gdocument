@@ -1,9 +1,10 @@
 @extends('admin/layout')
 @section('content')
 
-    <div class="card shadow mb-4" style="margin-right:300px;">
+<section class="section dashboard">
+    <div class="card">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Liste des Parcours </h6>
+                <h4 class="m-0 font-weight-bold text-primary" style="text-align: center;">Liste des Parcours </h4>
             </div>
             <div class="d-flex justify-content-end mb-1" style="margin-bottom:5px;">
                 <a class="btn btn-primary" href="{{route('admin/soutenance.create')}}">Ajouter</a>
@@ -19,7 +20,7 @@
                         <thead>
                             <tr>
                             <th>Id</th> 
-                            <th>Projets</th>
+                            <th>Projet</th>
                             <th>Etudiant</th>
                             <th>Date Soutenance</th>
                             <th>Notes</th>
@@ -30,11 +31,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if(count($soutenances) > 0)
                             @foreach($soutenances as $so)
                             <tr>
                                 <td>{{$so->id}}</td>
-                                <td>{{$so->projets_id}}</td>
-                                <td>{{$so->etudiants_id}}</td>
+                                <td>{{$so->projets->titre}}</td>
+                                <td>{{$so->etudiants->nom}}</td>
                                 <td>{{$so->date_soutenance}}</td>
                                 <td>{{$so->note}}</td>
                                 <td>{{$so->mention}}</td>
@@ -60,10 +62,17 @@
                             </tr>
                         </tbody>
                         @endforeach
+                        @else
+                        <tr>
+                            <td colspan="5" class="text-center">No Data Found</td>
+                        </tr>
+                        @endif
                     </table>
-                  <!--a href="demande.php">Nouvelle demande</a-->
+                    {!! $soutenances->links() !!}
              </div>
          </div>
     </div>
+
+</section>
 
 @endsection

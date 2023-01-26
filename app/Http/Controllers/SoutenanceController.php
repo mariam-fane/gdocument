@@ -16,7 +16,7 @@ class SoutenanceController extends Controller
     public function index()
     {
         //dd();
-        $soutenances =  Soutenance::all();
+        $soutenances =  Soutenance::orderBy('date_soutenance', 'asc')->paginate(5);
         return view('admin/soutenance.index', compact('soutenances'));
     }
 

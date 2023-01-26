@@ -12,4 +12,9 @@ class parcours extends Model
     protected $fillable = [
         'libelle', 'code', 'filieres_id'
     ];
+
+    // Pour recuperer la filiere de l'etudiant
+    public function filieres(){
+        return $this->belongsTo(Filiere::class);
+     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\etudiant;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class EtudiantController extends Controller
 {
@@ -15,19 +16,22 @@ class EtudiantController extends Controller
     public function index()
     {
 
-       $etudiants = etudiant::latest()->paginate(5);
-        return view('admin/etudiant.index', compact('etudiants'))->with('i', (request()->input('page', 1)-1) * 5);
+       $etudiants = etudiant::orderBy('nom', 'asc')->paginate(5);
+        return view('admin/etudiant.index', compact('etudiants'));
     }
 
     public function search(){
+        request()->validate([
+            'q'=>'Required|min:3'
+        ]);
 
         $q = request()->input('q');
 
-        $etudiant = Etudiant::where('matricule', 'like', "%$q%")
+        $etudiants = Etudiant::where('matricule', 'like', "%$q%")
         ->orWhere('nom', 'like', "%$q%")
         ->paginate(5);
 
-        return view('etudiant.search')->with('etudiant', $etudiant);
+        return view('admin/etudiant.search')->with('etudiants', $etudiants);
         //dd($q);
     }
     /**
@@ -73,14 +77,7 @@ class EtudiantController extends Controller
             $data->save();
             return redirect(route('admin/etudiant.index'))->with('success', 'Etudiant ajoute avec succes');
       }
-    //   public function search(Request $request){
-    //     $key = trim($request->get('q'));
-    //     $etudiants = etudiant::query()
-    //     ->where('$matricule', 'like', "%{$key}%")
-    //     ->orWhere('nom', 'like', "%{$key}%")
-    //     ->orderBy('created_at', 'desc')
-    //     ->get();
-    // }
+  
 
 
     /**

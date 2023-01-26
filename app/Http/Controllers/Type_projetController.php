@@ -16,7 +16,7 @@ class Type_projetController extends Controller
      */
     public function index()
     {
-        $type_projets = Type_projet::all();
+        $type_projets = Type_projet::orderBy('designation', 'asc')->paginate(5);
         return view('admin/type_projet.index', compact('type_projets'));
     }
 

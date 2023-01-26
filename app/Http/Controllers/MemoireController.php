@@ -15,7 +15,7 @@ class MemoireController extends Controller
      */
     public function index()
     {
-        $memoires = Memoire::all();
+        $memoires = Memoire::orderBy('type', 'asc')->paginate(5);
         return view('admin/memoire.index', compact('memoires'));
     }
 

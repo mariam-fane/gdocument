@@ -1,9 +1,9 @@
 @extends('admin/layout')
 @section('content')
-
-    <div class="card shadow mb-4" style="margin: right 200px;">
+<section class="section dashboard">
+    <div class="card">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Type Projet List </h6>
+                <h4 class="m-0 font-weight-bold text-primary" style="text-align: center;">Type Projet List </h4>
             </div>
             <div class="d-flex justify-content-end mb-1" style="margin-bottom:5px;">
                 <a class="btn btn-primary" href="{{ route('admin/type_projet.create') }}">Ajouter</a>
@@ -26,6 +26,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if(count($type_projets) > 0)
                             @foreach($type_projets as $type_projet)
                             <tr>
                                 <td>{{$type_projet->id}}</td>
@@ -52,10 +53,17 @@
                         </tbody>
                         @endforeach
                         </tbody>
+                        @else
+                        <tr>
+                            <td colspan="5" class="text-center">No Data Found</td>
+                        </tr>
+                        @endif
                     </table>
-                  <!--a href="demande.php">Nouvelle demande</a-->
+                    {!! $type_projets->links() !!}
              </div>
          </div>
     </div>
+
+</section>
 
 @endsection

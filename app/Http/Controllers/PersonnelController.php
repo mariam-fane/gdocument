@@ -13,7 +13,7 @@ class PersonnelController extends Controller
      */
     public function index()
     {
-        $personnels = Personnel::all();
+        $personnels = Personnel::orderBy('nom', 'asc')->paginate(5);
         return view('admin/personnel.index', compact('personnels'));
     }
 

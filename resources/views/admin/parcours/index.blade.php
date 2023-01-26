@@ -1,9 +1,10 @@
 @extends('admin/layout')
 @section('content')
 
-    <div class="card shadow mb-4" style="margin-right:300px;">
+<section class="section dashboard">
+    <div class="card">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary" style="text-align: center;">Liste des Parcours </h6>
+                <h4 class="m-0 font-weight-bold text-primary" style="text-align: center;">Liste des Parcours </h4>
             </div>
             <div class="d-flex justify-content-end mb-1" style="margin-bottom:5px;">
                 <a class="btn btn-primary" href="{{ route('admin/parcours.create') }}">Ajouter</a>
@@ -28,12 +29,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if(count($parcours) > 0)
                             @foreach($parcours as $parcours)
                             <tr>
                                 <td>{{$parcours->id}}</td>
                                 <td>{{$parcours->libelle}}</td>
                                 <td>{{$parcours->code}}</td>
-                                <td>{{$parcours->filieres_id}}</td>
+                                <td>{{$parcours->filieres->libele}}</td>
                                 
                                 <td>
                                     <form action="{{ url('admin/parcours/'. $parcours->id) }}" method="post"><br>
@@ -57,10 +59,16 @@
                             </tr>
                         </tbody>
                         @endforeach
+                        @else
+                        <tr>
+                            <td colspan="5" class="text-center">No Data Found</td>
+                        </tr>
+                        @endif
                     </table>
-                  <!--a href="demande.php">Nouvelle demande</a-->
+                    {!! $memoires->links() !!}
              </div>
          </div>
     </div>
+</section>
 
 @endsection
