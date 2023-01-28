@@ -65,7 +65,7 @@
                         </tr>
                         @endif
                     </table>
-                    {!! $memoires->links() !!}
+                    {!! $parcours->links() !!}
              </div>
          </div>
     </div>
