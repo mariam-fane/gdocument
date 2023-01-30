@@ -61,13 +61,13 @@
                 </div> -->
                 <div class="navbar-nav w-100">
                     <a href="{{url('/admin/index')}}" class="nav-item nav-link active"><i class="fa fa-home me-2"></i>Home</a>
-                    <a href="{{url('/admin/projet')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Projets</a>
+                    <a href="{{url('/admin/projet')}}" class="nav-item nav-link"><i class="fa fa-folder-open me-2"></i>Projets</a>
                     <a href="{{url('/admin/etudiant')}}" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Etudiant</a>
                     <a href="{{url('/admin/personnel')}}" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Personnel</a>
                     <a href="{{url('/admin/filiere')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Filiere</a>
-                    <a href="{{url('/admin/parcours')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Parcours</a>
+                    <a href="{{url('/admin/parcours')}}" class="nav-item nav-link"><i class="fa fa-bars me-2"></i>Parcours</a>
                     <a href="{{url('/admin/type_projet')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Type Projet</a>
-                    <a href="{{url('/admin/memoire')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Memoires</a>
+                    <a href="{{url('/admin/memoire')}}" class="nav-item nav-link"><i class="fa fa-graduation-cap me-2"></i>Memoires</a>
                     <a href="{{url('/admin/soutenance')}}" class="nav-item nav-link"><i class="fa fa-book me-2"></i>Soutenance</a>
               </div>
             </nav>
@@ -102,7 +102,7 @@
             </nav>
             <!-- Navbar End -->
 
-
+            <!-- affichage du resultat de recherche effectuer -->
             @if(request()->input())
                 <h6>{{$etudiants->total() }} resultat(s) pour la recherche "{{request()->q}}"</h6>
             @endif

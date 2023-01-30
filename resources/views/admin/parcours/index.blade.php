@@ -30,27 +30,27 @@
                         </thead>
                         <tbody>
                         @if(count($parcours) > 0)
-                            @foreach($parcours as $parcours)
+                            @foreach($parcours as $parcour)
                             <tr>
-                                <td>{{$parcours->id}}</td>
-                                <td>{{$parcours->libelle}}</td>
-                                <td>{{$parcours->code}}</td>
-                                <td>{{$parcours->filieres->libele}}</td>
+                                <td>{{$parcour->id}}</td>
+                                <td>{{$parcour->libelle}}</td>
+                                <td>{{$parcour->code}}</td>
+                                <td>{{$parcour->filieres->libele}}</td>
                                 
                                 <td>
-                                    <form action="{{ url('admin/parcours/'. $parcours->id) }}" method="post"><br>
+                                    <form action="{{ url('admin/parcours/'. $parcour->id) }}" method="post"><br>
                                         @csrf
-                                        <a class="fa fa-eye" href="{{ url('admin/parcours/'. $parcours->id) }}"></a>
+                                        <a class="fa fa-eye" href="{{ url('admin/parcours/'. $parcour->id) }}"></a>
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="{{ url('admin/parcours/'. $parcours->id) }}" method="post"><br>
+                                    <form action="{{ url('admin/parcours/'. $parcour->id) }}" method="post"><br>
                                         @csrf
-                                        <a class="fa fa-edit" href="{{ url('admin/parcours/'. $parcours->id .'/edit') }}"></a>
+                                        <a class="fa fa-edit" href="{{ url('admin/parcours/'. $parcour->id .'/edit') }}"></a>
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="{{ url('admin/parcours/'. $parcours->id) }}" method="post"><br>
+                                    <form action="{{ url('admin/parcours/'. $parcour->id) }}" method="post"><br>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="fa fa-trash"></button>
@@ -65,7 +65,7 @@
                         </tr>
                         @endif
                     </table>
-                    {!! $parcours->links() !!}
+                    {{$parcours->links() }}
              </div>
          </div>
     </div>

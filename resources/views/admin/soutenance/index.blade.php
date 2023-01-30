@@ -36,7 +36,7 @@
                             <tr>
                                 <td>{{$so->id}}</td>
                                 <td>{{$so->projets->titre}}</td>
-                                <td>{{$so->etudiants->nom}}</td>
+                                <td>{{$so->etudiants->nom}} {{$so->etudiants->prenom}}</td>
                                 <td>{{$so->date_soutenance}}</td>
                                 <td>{{$so->note}}</td>
                                 <td>{{$so->mention}}</td>

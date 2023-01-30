@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-6">
                   <label for="inputLastname" class="form-label">Note:</label>
-                  <input type="number" class="form-control" id="inputLastname" name="note">
+                  <input type="float" class="form-control" id="inputLastname" name="note">
                 </div>
                 <div class="col-md-12">
                   <label for="inputName5" class="form-label">Mention</label>

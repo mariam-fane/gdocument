@@ -15,7 +15,7 @@ class ParcoursController extends Controller
      */
     public function index()
     {
-        $parcours = Parcours::orderBy('libelle', 'asc')->paginate(5);
+        $parcours = Parcours::orderBy('libelle', 'asc')->paginate(3);
         return view('admin/parcours.index', compact('parcours'));
     }
 

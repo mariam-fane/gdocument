@@ -24,12 +24,14 @@ use App\Http\Controllers\Type_projetController;
 | 
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+     return view('admin.login');
+});
 
-Route::get('/', [AdminController::class, 'login'])->name('admin.login');
-Route::get('admin/index', [AdminController::class, 'index'])->name('admin.index');
+
+
+//Route::get('/', [AdminController::class, 'login'])->name('admin.login');
+Route::get('admin/index', [AdminController::class, 'index'])->name('admin/index');
 Route::post('admin', [AdminController::class, 'authenticate'])->name('admin');
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout'); 
 Route::get('admin/profile_user', [AdminController::class, 'profile'])->name('admin.profile_user');

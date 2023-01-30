@@ -46,7 +46,7 @@
                                         <td>{{$p->semestre}}</td>
                                         <td>{{$p->parcours->libelle}}</td>
                                         <td>{{$p->type_projets->titre}}</td>
-                                        <td>{{$p->personnels->nom}}</td>
+                                        <td>{{$p->personnels->nom}} {{$p->personnels->prenom}}</td>
                                         <td>
                                             <form action="{{ url('admin/projet/'. $p->id) }}" method="post"><br>
                                                 @csrf
