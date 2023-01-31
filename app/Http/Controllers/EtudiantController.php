@@ -19,7 +19,7 @@ class EtudiantController extends Controller
        $etudiants = etudiant::orderBy('nom', 'asc')->paginate(5);
         return view('admin/etudiant.index', compact('etudiants'));
     }
-
+ 
     public function search(){
         request()->validate([
             'q'=>'Required|min:3'
